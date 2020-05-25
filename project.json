@@ -1,0 +1,21 @@
+{
+ "name": "Retro",
+ "description": "Enter your project description",
+ "author": {
+  "name": "glacia",
+  "email": "no"
+ },
+ "version": "0.1.0",
+ "binaryname": "retro",
+ "frontend": {
+  "dir": "frontend",
+  "install": "npm install",
+  "build": "npm run build",
+  "bridge": "src",
+  "serve": "npm run serve"
+ },
+ "WailsVersion": "",
+ "CrossCompile": false,
+ "Platform": "",
+ "Architecture": ""
+}
