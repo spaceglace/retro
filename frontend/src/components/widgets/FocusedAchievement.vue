@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="overline mb-1">
-      Current Goal ({{ focused.Points }}/{{ focused.TrueRatio }} points)
+      Current Goal ({{ focused.Points }} ({{ focused.TrueRatio }}) points)
     </div>
     <v-img
       :src="`http://i.retroachievements.org.s3.amazonaws.com/Badge/${focused.BadgeName}.png`"
@@ -14,13 +14,17 @@
         {{ focused.Title }}
       </div>
       <v-divider></v-divider>
-      <div style="overflow:hidden" class="mt-3">
-        <div class="text-no-wrap" id="marquee">{{ focused.Description }}</div>
+      <div style="overflow:hidden" class="my-3">
+        <div
+          class="text-no-wrap"
+          style="overflow: hidden; text-overflow: ellipsis;"
+          :id="settings.marquee ? 'marquee' : ''"
+        >{{ focused.Description }}</div>
       </div>
     </div>
     <div
       v-if="settings.softPercent"
-      class="text-center caption mt-3"
+      class="text-center caption"
     >
       {{ softcorePercent }}% of Softcore players have this
     </div>
@@ -45,7 +49,7 @@ export default {
     focused() {
       if (this.game === null) return {};
       const candidates = this.game.order
-        .filter(x => !this.game.achievements[x][this.gameMode]);
+      //  .filter(x => !this.game.achievements[x][this.gameMode]);
       // TODO: make special 'u got em all' thing
       if (candidates.length === 0) return {};
       return this.game.achievements[candidates[0]];
