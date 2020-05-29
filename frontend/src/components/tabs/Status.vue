@@ -25,16 +25,10 @@
     <v-row justify="space-around">
       <v-col cols="auto">
         <v-btn
-          @click="update(false)"
+          @click="update()"
           :loading="loading"
           color="primary"
         >Refresh Now</v-btn>
-      </v-col>
-    </v-row>
-    <v-row justify="space-around">
-      <v-col cols="auto">
-        <v-btn
-          @click="update(true)">Pretend to get an achievement</v-btn>
       </v-col>
     </v-row>
   </v-container>
@@ -76,9 +70,9 @@ export default {
       this.incrementTimer();
       if (!this.layout || !this.layout.auto) return;
     },
-    async update(dumb) {
+    async update() {
       this.loading = true;
-      await this.getGameInfo({dumb, ...this.profile});
+      await this.getGameInfo(this.profile);
       this.loading = false;
       this.resetTimer();
     },

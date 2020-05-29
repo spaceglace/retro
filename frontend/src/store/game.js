@@ -35,17 +35,10 @@ export default {
   },
 
   actions: {
-    async getGameInfo({ commit }, { name, key, dumb }) {
+    async getGameInfo({ commit }, { name, key }) {
       try {
         const game = await window.backend.Retro.GetLastGame(name, key);
         const result = await window.backend.Retro.GetGameInformation(name, key, game);
-        if (dumb) {
-          for (let i in result.achievements) {
-            if (!result.achievements[i].DateEarnedHardcore) {
-              result.achievements[i].DateEarnedHardcore = "2020-04-28 23:42:48";
-            }
-          }
-        }
         commit('SET_GAME_INFO', result);
       } catch (e) {
         console.error('Failed to get game info:', e);
