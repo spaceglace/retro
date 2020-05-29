@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="overline mb-1">
-      Current Goal ({{ focused.Points }} ({{ focused.TrueRatio }}) points)
+      Current Goal - {{ focused.Points }} ({{ focused.TrueRatio }}) points
     </div>
     <v-img
       :src="`http://i.retroachievements.org.s3.amazonaws.com/Badge/${focused.BadgeName}.png`"
