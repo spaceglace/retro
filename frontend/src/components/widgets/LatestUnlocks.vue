@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="overline mb-1">
-      Latest {{ settings.count }} Achievement{{ settings.count === 1 ? '' : 's'}}
+      Latest {{ latest.length }} Achievement{{ latest.length === 1 ? '' : 's'}}
     </div>
     <v-row no-gutters justify="center">
       <v-img

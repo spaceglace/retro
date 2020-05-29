@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="overline mb-1">
-      Next {{ count }} Locked Achievement{{ count === 1 ? '' : 's' }}
+      Next {{ locked.length }} Locked Achievement{{ locked.length === 1 ? '' : 's' }}
     </div>
     <v-row no-gutters justify="center">
       <v-img
@@ -28,10 +28,6 @@ export default {
 
   computed: {
     ...mapState('game', ['game', 'gameMode']),
-
-    count() {
-      return Math.min(this.settings.count, this.locked.length);
-    },
 
     locked() {
       if (this.game === null) return [];

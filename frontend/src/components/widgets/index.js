@@ -63,8 +63,10 @@ export default {
       {
         name: 'count',
         title: 'Count',
-        type: 'number',
+        type: 'slider',
         default: 8,
+        min: 0,
+        max: 50,
       },
       {
         name: 'iconHeight',
@@ -83,8 +85,10 @@ export default {
       {
         name: 'count',
         title: 'Count',
-        type: 'number',
+        type: 'slider',
         default: 8,
+        min: 0,
+        max: 50,
       },
       {
         name: 'iconHeight',
@@ -100,6 +104,12 @@ export default {
     name: 'widget-focused',
     title: 'Focused Achievement',
     settings: [
+      {
+        name: 'marquee',
+        title: 'Scroll Description',
+        type: 'boolean',
+        default: true,
+      },
       {
         name: 'softPercent',
         title: 'Show Softcore Percent',
