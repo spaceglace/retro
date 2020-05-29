@@ -69,6 +69,11 @@ export default {
     tick() {
       this.incrementTimer();
       if (!this.layout || !this.layout.auto) return;
+
+      // TODO: don't hardcode
+      if (this.timer >= 15) {
+        this.update();
+      }
     },
     async update() {
       this.loading = true;
